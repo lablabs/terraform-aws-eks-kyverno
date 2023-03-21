@@ -18,25 +18,25 @@ variable "cluster_identity_oidc_issuer_arn" {
 
 variable "helm_chart_name" {
   type        = string
-  default     = "<$addon-name>"
+  default     = "kyverno"
   description = "Helm chart name to be installed"
 }
 
 variable "helm_chart_version" {
   type        = string
-  default     = "<helm_chart_version>"
+  default     = "2.7.1"
   description = "Version of the Helm chart"
 }
 
 variable "helm_release_name" {
   type        = string
-  default     = "<$addon-name>"
+  default     = "kyverno"
   description = "Helm release name"
 }
 
 variable "helm_repo_url" {
   type        = string
-  default     = "<helm_repo_url>"
+  default     = "https://kyverno.github.io/kyverno/"
   description = "Helm repository"
 }
 
@@ -48,20 +48,20 @@ variable "helm_create_namespace" {
 
 variable "namespace" {
   type        = string
-  default     = "<$addon-name>"
-  description = "The K8s namespace in which the <$addon-name> service account has been created"
+  default     = "kyverno"
+  description = "The K8s namespace in which the kyverno service account has been created"
 }
 
 variable "settings" {
   type        = map(any)
   default     = {}
-  description = "Additional helm sets which will be passed to the Helm chart values, see https://hub.helm.sh/charts/stable/<$addon-name>"
+  description = "Additional helm sets which will be passed to the Helm chart values, see https://artifacthub.io/packages/helm/kyverno/kyverno"
 }
 
 variable "values" {
   type        = string
   default     = ""
-  description = "Additional yaml encoded values which will be passed to the Helm chart, see https://hub.helm.sh/charts/stable/<$addon-name>"
+  description = "Additional yaml encoded values which will be passed to the Helm chart, see https://artifacthub.io/packages/helm/kyverno/kyverno"
 }
 
 # ================ IRSA variables (optional) ================
@@ -80,32 +80,14 @@ variable "service_account_create" {
 
 variable "service_account_name" {
   type        = string
-  default     = "<$addon-name>"
-  description = "The k8s <$addon-name> service account name"
+  default     = "kyverno"
+  description = "The k8s kyverno service account name"
 }
 
 variable "irsa_role_create" {
   type        = bool
   default     = true
   description = "Whether to create IRSA role and annotate service account"
-}
-
-variable "irsa_policy_enabled" {
-  type        = bool
-  default     = true
-  description = "Whether to create opinionated policy to allow operations on specified zones in `policy_allowed_zone_ids`."
-}
-
-variable "irsa_assume_role_enabled" {
-  type        = bool
-  default     = false
-  description = "Whether IRSA is allowed to assume role defined by irsa_assume_role_arn."
-}
-
-variable "irsa_assume_role_arn" {
-  type        = string
-  default     = ""
-  description = "Assume role arn. Assume role must be enabled."
 }
 
 variable "irsa_additional_policies" {
@@ -116,8 +98,8 @@ variable "irsa_additional_policies" {
 
 variable "irsa_role_name_prefix" {
   type        = string
-  default     = "<$addon-name>-irsa"
-  description = "The IRSA role name prefix for <$addon-name>"
+  default     = "kyverno-irsa"
+  description = "The IRSA role name prefix for kyverno"
 }
 
 variable "irsa_tags" {
