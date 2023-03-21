@@ -116,7 +116,7 @@ resource "kubernetes_job" "helm_argo_application_wait" {
             image   = "bitnami/kubectl:latest"
             command = ["/bin/bash", "-ecx"]
             # Waits for ArgoCD Application to be "Healthy", see https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#wait
-            #   i.e. kubectl wait --for=jsonpath='{.status.sync.status}'=Healthy application.argoproj.io <$addon-name>
+            #   i.e. kubectl wait --for=jsonpath='{.status.sync.status}'=Healthy application.argoproj.io kyverno
             args = [
               <<-EOT
               kubectl wait \
