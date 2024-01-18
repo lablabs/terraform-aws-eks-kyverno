@@ -7,6 +7,7 @@ locals {
           "create" : var.service_account_create
           "name" : "${var.service_account_name}-admission-controller"
           "annotations" : {
+            # admission controller can sign and check ecr images https://kyverno.io/blog/2023/08/18/verifying-images-in-a-private-amazon-ecr-with-kyverno-and-iam-roles-for-service-accounts-irsa/
             "eks.amazonaws.com/role-arn" : local.irsa_role_create ? aws_iam_role.this[0].arn : ""
           }
         }
@@ -17,9 +18,6 @@ locals {
         "serviceAccount" : {
           "create" : var.service_account_create
           "name" : "${var.service_account_name}-background-controller"
-          "annotations" : {
-            "eks.amazonaws.com/role-arn" : local.irsa_role_create ? aws_iam_role.this[0].arn : ""
-          }
         }
       }
     }
@@ -28,9 +26,6 @@ locals {
         "serviceAccount" : {
           "create" : var.service_account_create
           "name" : "${var.service_account_name}-cleanup-controller"
-          "annotations" : {
-            "eks.amazonaws.com/role-arn" : local.irsa_role_create ? aws_iam_role.this[0].arn : ""
-          }
         }
       }
     }
@@ -39,9 +34,6 @@ locals {
         "serviceAccount" : {
           "create" : var.service_account_create
           "name" : "${var.service_account_name}-reports-controller"
-          "annotations" : {
-            "eks.amazonaws.com/role-arn" : local.irsa_role_create ? aws_iam_role.this[0].arn : ""
-          }
         }
       }
     }
