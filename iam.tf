@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "this" {
       "signer:DescribeSigningJob",
       "signer:ListSigningJobs"
     ]
-    resources = ["*"]
+    resources = var.irsa_policy_ecr_repository_arns
   }
 }
 
