@@ -90,6 +90,12 @@ variable "irsa_role_create" {
   description = "Whether to create IRSA role and annotate service account"
 }
 
+variable "irsa_policy_enabled" {
+  type        = bool
+  default     = true
+  description = "Whether to create opinionated policy to allow operations on specified zones in `policy_allowed_zone_ids`."
+}
+
 variable "irsa_additional_policies" {
   type        = map(string)
   default     = {}
@@ -106,6 +112,12 @@ variable "irsa_tags" {
   type        = map(string)
   default     = {}
   description = "IRSA resources tags"
+}
+
+variable "aws_partition" {
+  type        = string
+  default     = "aws"
+  description = "AWS partition in which the resources are located. Available values are `aws`, `aws-cn`, `aws-us-gov`"
 }
 
 # ================ argo variables (required) ================
@@ -132,6 +144,18 @@ variable "argo_helm_wait_timeout" {
   type        = string
   default     = "10m"
   description = "Timeout for ArgoCD Application Helm release wait job"
+}
+
+variable "argo_helm_wait_node_selector" {
+  type        = map(string)
+  default     = {}
+  description = "Node selector for ArgoCD Application Helm release wait job"
+}
+
+variable "argo_helm_wait_tolerations" {
+  type        = list(any)
+  default     = []
+  description = "Tolerations for ArgoCD Application Helm release wait job"
 }
 
 variable "argo_helm_wait_backoff_limit" {
