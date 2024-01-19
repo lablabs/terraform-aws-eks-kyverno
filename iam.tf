@@ -6,7 +6,7 @@ locals {
 # https://kyverno.io/blog/2023/08/18/verifying-images-in-a-private-amazon-ecr-with-kyverno-and-iam-roles-for-service-accounts-irsa/#configuring-a-kubernetes-service-account-to-assume-an-iam-role
 
 data "aws_iam_policy_document" "this" {
-  count = local.irsa_role_create && var.irsa_policy_enabled ? 1 : 0
+  count = local.irsa_role_create && var.irsa_policy_enabled > 0 ? 1 : 0
   statement {
     actions = [
       "signer:GetSigningProfile",
@@ -16,6 +16,8 @@ data "aws_iam_policy_document" "this" {
       "signer:DescribeSigningJob",
       "signer:ListSigningJobs"
     ]
+    #checkov:skip=CKV_AWS_356:this is up to customer to choose repositories
+    #checkov:skip=CKV_AWS_111:allowing write signer:SignPayload is in the Kyverno docs
     resources = var.irsa_policy_ecr_repository_arns
   }
 }
