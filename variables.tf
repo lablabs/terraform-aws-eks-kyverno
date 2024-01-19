@@ -120,12 +120,6 @@ variable "irsa_tags" {
   description = "IRSA resources tags"
 }
 
-variable "aws_partition" {
-  type        = string
-  default     = "aws"
-  description = "AWS partition in which the resources are located. Available values are `aws`, `aws-cn`, `aws-us-gov`"
-}
-
 # ================ argo variables (required) ================
 
 variable "argo_namespace" {
