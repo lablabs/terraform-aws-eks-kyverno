@@ -96,12 +96,6 @@ variable "irsa_policy_enabled" {
   description = "Whether to create opinionated policy to allow erc image verification."
 }
 
-variable "irsa_policy_ecr_repository_arns" {
-  type        = list(string)
-  default     = ["*"]
-  description = "Which ecr repositories to include under admission controller image verification."
-}
-
 variable "irsa_additional_policies" {
   type        = map(string)
   default     = {}
