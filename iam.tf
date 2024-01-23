@@ -9,7 +9,7 @@ locals {
 data "aws_iam_policy_document" "this" {
   count = local.irsa_role_create && var.irsa_policy_enabled ? 1 : 0
   statement {
-    actions = []
+    actions   = []
     resources = []
   }
 }
