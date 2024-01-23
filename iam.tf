@@ -2,23 +2,15 @@ locals {
   irsa_role_create = var.enabled && var.rbac_create && var.service_account_create && var.irsa_role_create
 }
 
-# policy for image verification as per
+# policy is empty due to discrepancy between sources as to how to setup policies, this needs to be investigated and tested
 # https://kyverno.io/blog/2023/08/18/verifying-images-in-a-private-amazon-ecr-with-kyverno-and-iam-roles-for-service-accounts-irsa/#configuring-a-kubernetes-service-account-to-assume-an-iam-role
+# https://github.com/nirmata/kyverno-notation-aws
 
 data "aws_iam_policy_document" "this" {
   count = local.irsa_role_create && var.irsa_policy_enabled ? 1 : 0
   statement {
-    actions = [
-      "signer:GetSigningProfile",
-      "signer:ListSigningProfiles",
-      "signer:SignPayload",
-      "signer:GetRevocationStatus",
-      "signer:DescribeSigningJob",
-      "signer:ListSigningJobs"
-    ]
-    #checkov:skip=CKV_AWS_356:this is up to customer to choose repositories
-    #checkov:skip=CKV_AWS_111:allowing write signer:SignPayload is in the Kyverno docs
-    resources = var.irsa_policy_ecr_repository_arns
+    actions = []
+    resources = []
   }
 }
 

@@ -24,7 +24,7 @@ variable "helm_chart_name" {
 
 variable "helm_chart_version" {
   type        = string
-  default     = "2.7.2"
+  default     = "3.1.3"
   description = "Version of the Helm chart"
 }
 
@@ -92,8 +92,8 @@ variable "irsa_role_create" {
 
 variable "irsa_policy_enabled" {
   type        = bool
-  default     = true
-  description = "Whether to create opinionated policy to allow operations on specified zones in `policy_allowed_zone_ids`."
+  default     = false
+  description = "Whether to create opinionated policy to allow erc image verification."
 }
 
 variable "irsa_policy_ecr_repository_arns" {
