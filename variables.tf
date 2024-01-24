@@ -24,7 +24,7 @@ variable "helm_chart_name" {
 
 variable "helm_chart_version" {
   type        = string
-  default     = "2.7.2"
+  default     = "3.1.3"
   description = "Version of the Helm chart"
 }
 
@@ -90,6 +90,12 @@ variable "irsa_role_create" {
   description = "Whether to create IRSA role and annotate service account"
 }
 
+variable "irsa_policy_enabled" {
+  type        = bool
+  default     = false
+  description = "Whether to create opinionated policy to allow erc image verification."
+}
+
 variable "irsa_additional_policies" {
   type        = map(string)
   default     = {}
@@ -132,6 +138,18 @@ variable "argo_helm_wait_timeout" {
   type        = string
   default     = "10m"
   description = "Timeout for ArgoCD Application Helm release wait job"
+}
+
+variable "argo_helm_wait_node_selector" {
+  type        = map(string)
+  default     = {}
+  description = "Node selector for ArgoCD Application Helm release wait job"
+}
+
+variable "argo_helm_wait_tolerations" {
+  type        = list(any)
+  default     = []
+  description = "Tolerations for ArgoCD Application Helm release wait job"
 }
 
 variable "argo_helm_wait_backoff_limit" {
