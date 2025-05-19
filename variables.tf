@@ -8,7 +8,7 @@ variable "enabled" {
 variable "admission_controller_rbac_create" {
   type        = bool
   default     = true
-  description = "Whether to create and use Admission Controller RBAC resources. Defaults to `true`."
+  description = "Whether to create and use Admission Controller RBAC resources."
 }
 
 variable "admission_controller_service_account_create" {
@@ -38,7 +38,7 @@ variable "admission_controller_irsa_additional_policies" {
 variable "background_controller_rbac_create" {
   type        = bool
   default     = true
-  description = "Whether to create and use Background Controller RBAC resources. Defaults to `true`."
+  description = "Whether to create and use Background Controller RBAC resources."
 }
 
 variable "background_controller_service_account_create" {
@@ -68,7 +68,7 @@ variable "background_controller_irsa_additional_policies" {
 variable "cleanup_controller_rbac_create" {
   type        = bool
   default     = true
-  description = "Whether to create and use Cleanup Controller RBAC resources. Defaults to `true`."
+  description = "Whether to create and use Cleanup Controller RBAC resources."
 }
 
 variable "cleanup_controller_service_account_create" {
@@ -99,7 +99,7 @@ variable "cleanup_controller_irsa_additional_policies" {
 variable "reports_controller_rbac_create" {
   type        = bool
   default     = true
-  description = "Whether to create and use Reports Controller RBAC resources. Defaults to `true`."
+  description = "Whether to create and use Reports Controller RBAC resources."
 }
 
 variable "reports_controller_service_account_create" {
