@@ -49,9 +49,9 @@ locals {
   addon_values = yamlencode({
     admissionController = {
       rbac = {
+        create = local.addon_irsa["${local.addon.name}-admission-controller"].service_account_create
         serviceAccount = {
-          create = local.addon_irsa["${local.addon.name}-admission-controller"].service_account_create
-          name   = local.addon_irsa["${local.addon.name}-admission-controller"].service_account_name
+          name = local.addon_irsa["${local.addon.name}-admission-controller"].service_account_name
           annotations = module.addon-irsa["${local.addon.name}-admission-controller"].irsa_role_enabled ? {
             "eks.amazonaws.com/role-arn" = module.addon-irsa["${local.addon.name}-admission-controller"].iam_role_attributes.arn
           } : tomap({})
@@ -60,9 +60,9 @@ locals {
     }
     backgroundController = {
       rbac = {
+        create = local.addon_irsa["${local.addon.name}-background-controller"].service_account_create
         serviceAccount = {
-          create = local.addon_irsa["${local.addon.name}-background-controller"].service_account_create
-          name   = local.addon_irsa["${local.addon.name}-background-controller"].service_account_name
+          name = local.addon_irsa["${local.addon.name}-background-controller"].service_account_name
           annotations = module.addon-irsa["${local.addon.name}-background-controller"].irsa_role_enabled ? {
             "eks.amazonaws.com/role-arn" = module.addon-irsa["${local.addon.name}-background-controller"].iam_role_attributes.arn
           } : tomap({})
@@ -71,9 +71,9 @@ locals {
     }
     cleanupController = {
       rbac = {
+        create = local.addon_irsa["${local.addon.name}-cleanup-controller"].service_account_create
         serviceAccount = {
-          create = local.addon_irsa["${local.addon.name}-cleanup-controller"].service_account_create
-          name   = local.addon_irsa["${local.addon.name}-cleanup-controller"].service_account_name
+          name = local.addon_irsa["${local.addon.name}-cleanup-controller"].service_account_name
           annotations = module.addon-irsa["${local.addon.name}-cleanup-controller"].irsa_role_enabled ? {
             "eks.amazonaws.com/role-arn" = module.addon-irsa["${local.addon.name}-cleanup-controller"].iam_role_attributes.arn
           } : tomap({})
@@ -82,9 +82,9 @@ locals {
     }
     reportsController = {
       rbac = {
+        create = local.addon_irsa["${local.addon.name}-reports-controller"].service_account_create
         serviceAccount = {
-          create = local.addon_irsa["${local.addon.name}-reports-controller"].service_account_create
-          name   = local.addon_irsa["${local.addon.name}-reports-controller"].service_account_name
+          name = local.addon_irsa["${local.addon.name}-reports-controller"].service_account_name
           annotations = module.addon-irsa["${local.addon.name}-reports-controller"].irsa_role_enabled ? {
             "eks.amazonaws.com/role-arn" = module.addon-irsa["${local.addon.name}-reports-controller"].iam_role_attributes.arn
           } : tomap({})
