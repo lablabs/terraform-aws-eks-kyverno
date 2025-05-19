@@ -17,6 +17,7 @@ locals {
 
   addon_irsa = {
     "${local.addon.name}-admission-controller" = {
+      rbac_create              = var.admission_controller_rbac_create
       service_account_create   = var.admission_controller_service_account_create
       service_account_name     = var.admission_controller_service_account_name
       irsa_role_create         = var.admission_controller_irsa_role_create
@@ -24,21 +25,24 @@ locals {
       irsa_additional_policies = var.admission_controller_irsa_additional_policies
     }
     "${local.addon.name}-background-controller" = {
-      service_account_create   = var.background_controller_service_account_create
+      rbac_create              = var.background_controller_rbac_create
+      service_account_name     = var.background_controller_service_account_create
       service_account_name     = var.background_controller_service_account_name
       irsa_role_create         = var.background_controller_irsa_role_create
       irsa_role_name           = "background"
       irsa_additional_policies = var.background_controller_irsa_additional_policies
     }
     "${local.addon.name}-cleanup-controller" = {
-      service_account_create   = var.cleanup_controller_service_account_create
+      rbac_create              = var.cleanup_controller_rbac_create
+      service_account_name     = var.cleanup_controller_service_account_create
       service_account_name     = var.cleanup_controller_service_account_name
       irsa_role_create         = var.cleanup_controller_irsa_role_create
       irsa_role_name           = "cleanup"
       irsa_additional_policies = var.cleanup_controller_irsa_additional_policies
     }
     "${local.addon.name}-reports-controller" = {
-      service_account_create   = var.reports_controller_service_account_create
+      rbac_create              = var.reports_controller_rbac_create
+      service_account_name     = var.reports_controller_service_account_create
       service_account_name     = var.reports_controller_service_account_name
       irsa_role_create         = var.reports_controller_irsa_role_create
       irsa_role_name           = "reports"
@@ -49,7 +53,7 @@ locals {
   addon_values = yamlencode({
     admissionController = {
       rbac = {
-        create = local.addon_irsa["${local.addon.name}-admission-controller"].service_account_create
+        create = local.addon_irsa["${local.addon.name}-admission-controller"].rbac_create
         serviceAccount = {
           name = local.addon_irsa["${local.addon.name}-admission-controller"].service_account_name
           annotations = module.addon-irsa["${local.addon.name}-admission-controller"].irsa_role_enabled ? {
@@ -60,7 +64,7 @@ locals {
     }
     backgroundController = {
       rbac = {
-        create = local.addon_irsa["${local.addon.name}-background-controller"].service_account_create
+        create = local.addon_irsa["${local.addon.name}-background-controller"].rbac_create
         serviceAccount = {
           name = local.addon_irsa["${local.addon.name}-background-controller"].service_account_name
           annotations = module.addon-irsa["${local.addon.name}-background-controller"].irsa_role_enabled ? {
@@ -71,7 +75,7 @@ locals {
     }
     cleanupController = {
       rbac = {
-        create = local.addon_irsa["${local.addon.name}-cleanup-controller"].service_account_create
+        create = local.addon_irsa["${local.addon.name}-cleanup-controller"].rbac_create
         serviceAccount = {
           name = local.addon_irsa["${local.addon.name}-cleanup-controller"].service_account_name
           annotations = module.addon-irsa["${local.addon.name}-cleanup-controller"].irsa_role_enabled ? {
@@ -82,7 +86,7 @@ locals {
     }
     reportsController = {
       rbac = {
-        create = local.addon_irsa["${local.addon.name}-reports-controller"].service_account_create
+        create = local.addon_irsa["${local.addon.name}-reports-controller"].rbac_create
         serviceAccount = {
           name = local.addon_irsa["${local.addon.name}-reports-controller"].service_account_name
           annotations = module.addon-irsa["${local.addon.name}-reports-controller"].irsa_role_enabled ? {
