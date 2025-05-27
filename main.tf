@@ -17,62 +17,62 @@ locals {
 
   addon_irsa = {
     "admission-controller" = {
-      rbac_create            = var.kyverno_admission_controller_rbac_create
-      service_account_create = var.kyverno_admission_controller_service_account_create
-      service_account_name   = var.kyverno_admission_controller_service_account_name
+      rbac_create            = var.admission_controller_rbac_create
+      service_account_create = var.admission_controller_service_account_create
+      service_account_name   = var.admission_controller_service_account_name
 
-      irsa_role_create          = var.kyverno_admission_controller_irsa_role_create
-      irsa_policy_enabled       = var.kyverno_admission_controller_irsa_policy_enabled
-      irsa_policy               = var.kyverno_admission_controller_irsa_policy
-      irsa_assume_role_enabled  = var.kyverno_admission_controller_irsa_assume_role_enabled
-      irsa_assume_role_arns     = var.kyverno_admission_controller_irsa_assume_role_arns
-      irsa_permissions_boundary = var.kyverno_admission_controller_irsa_permissions_boundary
-      irsa_additional_policies  = var.kyverno_admission_controller_irsa_additional_policies
+      irsa_role_create          = var.admission_controller_irsa_role_create
+      irsa_policy_enabled       = var.admission_controller_irsa_policy_enabled
+      irsa_policy               = var.admission_controller_irsa_policy
+      irsa_assume_role_enabled  = var.admission_controller_irsa_assume_role_enabled
+      irsa_assume_role_arns     = var.admission_controller_irsa_assume_role_arns
+      irsa_permissions_boundary = var.admission_controller_irsa_permissions_boundary
+      irsa_additional_policies  = var.admission_controller_irsa_additional_policies
     }
     "background-controller" = {
-      rbac_create            = var.kyverno_background_controller_rbac_create
-      service_account_create = var.kyverno_background_controller_service_account_create
-      service_account_name   = var.kyverno_background_controller_service_account_name
+      rbac_create            = var.background_controller_rbac_create
+      service_account_create = var.background_controller_service_account_create
+      service_account_name   = var.background_controller_service_account_name
 
-      irsa_role_create          = var.kyverno_background_controller_irsa_role_create
-      irsa_policy_enabled       = var.kyverno_background_controller_irsa_policy_enabled
-      irsa_policy               = var.kyverno_background_controller_irsa_policy
-      irsa_assume_role_enabled  = var.kyverno_background_controller_irsa_assume_role_enabled
-      irsa_assume_role_arns     = var.kyverno_background_controller_irsa_assume_role_arns
-      irsa_permissions_boundary = var.kyverno_background_controller_irsa_permissions_boundary
-      irsa_additional_policies  = var.kyverno_background_controller_irsa_additional_policies
+      irsa_role_create          = var.background_controller_irsa_role_create
+      irsa_policy_enabled       = var.background_controller_irsa_policy_enabled
+      irsa_policy               = var.background_controller_irsa_policy
+      irsa_assume_role_enabled  = var.background_controller_irsa_assume_role_enabled
+      irsa_assume_role_arns     = var.background_controller_irsa_assume_role_arns
+      irsa_permissions_boundary = var.background_controller_irsa_permissions_boundary
+      irsa_additional_policies  = var.background_controller_irsa_additional_policies
     }
     "cleanup-controller" = {
-      rbac_create            = var.kyverno_cleanup_controller_rbac_create
-      service_account_create = var.kyverno_cleanup_controller_service_account_create
-      service_account_name   = var.kyverno_cleanup_controller_service_account_name
+      rbac_create            = var.cleanup_controller_rbac_create
+      service_account_create = var.cleanup_controller_service_account_create
+      service_account_name   = var.cleanup_controller_service_account_name
 
-      irsa_role_create          = var.kyverno_cleanup_controller_irsa_role_create
-      irsa_policy_enabled       = var.kyverno_cleanup_controller_irsa_policy_enabled
-      irsa_policy               = var.kyverno_cleanup_controller_irsa_policy
-      irsa_assume_role_enabled  = var.kyverno_cleanup_controller_irsa_assume_role_enabled
-      irsa_assume_role_arns     = var.kyverno_cleanup_controller_irsa_assume_role_arns
-      irsa_permissions_boundary = var.kyverno_cleanup_controller_irsa_permissions_boundary
-      irsa_additional_policies  = var.kyverno_cleanup_controller_irsa_additional_policies
+      irsa_role_create          = var.cleanup_controller_irsa_role_create
+      irsa_policy_enabled       = var.cleanup_controller_irsa_policy_enabled
+      irsa_policy               = var.cleanup_controller_irsa_policy
+      irsa_assume_role_enabled  = var.cleanup_controller_irsa_assume_role_enabled
+      irsa_assume_role_arns     = var.cleanup_controller_irsa_assume_role_arns
+      irsa_permissions_boundary = var.cleanup_controller_irsa_permissions_boundary
+      irsa_additional_policies  = var.cleanup_controller_irsa_additional_policies
     }
     "reports-controller" = {
-      rbac_create            = var.kyverno_reports_controller_rbac_create
-      service_account_create = var.kyverno_reports_controller_service_account_create
-      service_account_name   = var.kyverno_reports_controller_service_account_name
+      rbac_create            = var.reports_controller_rbac_create
+      service_account_create = var.reports_controller_service_account_create
+      service_account_name   = var.reports_controller_service_account_name
 
-      irsa_role_create          = var.kyverno_reports_controller_irsa_role_create
-      irsa_policy_enabled       = var.kyverno_reports_controller_irsa_policy_enabled
-      irsa_policy               = var.kyverno_reports_controller_irsa_policy
-      irsa_assume_role_enabled  = var.kyverno_reports_controller_irsa_assume_role_enabled
-      irsa_assume_role_arns     = var.kyverno_reports_controller_irsa_assume_role_arns
-      irsa_permissions_boundary = var.kyverno_reports_controller_irsa_permissions_boundary
-      irsa_additional_policies  = var.kyverno_reports_controller_irsa_additional_policies
+      irsa_role_create          = var.reports_controller_irsa_role_create
+      irsa_policy_enabled       = var.reports_controller_irsa_policy_enabled
+      irsa_policy               = var.reports_controller_irsa_policy
+      irsa_assume_role_enabled  = var.reports_controller_irsa_assume_role_enabled
+      irsa_assume_role_arns     = var.reports_controller_irsa_assume_role_arns
+      irsa_permissions_boundary = var.reports_controller_irsa_permissions_boundary
+      irsa_additional_policies  = var.reports_controller_irsa_additional_policies
     }
   }
 
   addon_values = yamlencode({
     admissionController = {
-      enabled = var.kyverno_admission_controller_enabled
+      enabled = var.admission_controller_enabled
       rbac = {
         create = module.addon-irsa["admission-controller"].rbac_create
         serviceAccount = {
@@ -84,7 +84,7 @@ locals {
       }
     }
     backgroundController = {
-      enabled = var.kyverno_background_controller_enabled
+      enabled = var.background_controller_enabled
       rbac = {
         create = module.addon-irsa["background-controller"].rbac_create
         serviceAccount = {
@@ -96,7 +96,7 @@ locals {
       }
     }
     cleanupController = {
-      enabled = var.kyverno_cleanup_controller_enabled
+      enabled = var.cleanup_controller_enabled
       rbac = {
         create = module.addon-irsa["cleanup-controller"].rbac_create
         serviceAccount = {
@@ -108,7 +108,7 @@ locals {
       }
     }
     reportsController = {
-      enabled = var.kyverno_reports_controller_enabled
+      enabled = var.reports_controller_enabled
       rbac = {
         create = module.addon-irsa["reports-controller"].rbac_create
         serviceAccount = {
