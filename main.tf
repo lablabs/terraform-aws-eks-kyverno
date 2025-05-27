@@ -17,6 +17,7 @@ locals {
 
   addon_irsa = {
     "admission-controller" = {
+      rbac_create            = var.kyverno_admission_controller_rbac_create
       service_account_create = var.kyverno_admission_controller_service_account_create
       service_account_name   = var.kyverno_admission_controller_service_account_name
 
@@ -29,6 +30,7 @@ locals {
       irsa_additional_policies  = var.kyverno_admission_controller_irsa_additional_policies
     }
     "background-controller" = {
+      rbac_create            = var.kyverno_background_controller_rbac_create
       service_account_create = var.kyverno_background_controller_service_account_create
       service_account_name   = var.kyverno_background_controller_service_account_name
 
@@ -41,6 +43,7 @@ locals {
       irsa_additional_policies  = var.kyverno_background_controller_irsa_additional_policies
     }
     "cleanup-controller" = {
+      rbac_create            = var.kyverno_cleanup_controller_rbac_create
       service_account_create = var.kyverno_cleanup_controller_service_account_create
       service_account_name   = var.kyverno_cleanup_controller_service_account_name
 
@@ -53,6 +56,7 @@ locals {
       irsa_additional_policies  = var.kyverno_cleanup_controller_irsa_additional_policies
     }
     "reports-controller" = {
+      rbac_create            = var.kyverno_reports_controller_rbac_create
       service_account_create = var.kyverno_reports_controller_service_account_create
       service_account_name   = var.kyverno_reports_controller_service_account_name
 

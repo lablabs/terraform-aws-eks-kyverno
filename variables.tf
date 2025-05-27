@@ -5,6 +5,12 @@ variable "enabled" {
   description = "Set to false to prevent the module from creating any resources."
 }
 
+variable "kyverno_admission_controller_rbac_create" {
+  type        = bool
+  default     = true
+  description = "Whether to create and use Admission Controller RBAC resources."
+}
+
 variable "kyverno_admission_controller_enabled" {
   type        = bool
   default     = true
@@ -63,6 +69,12 @@ variable "kyverno_admission_controller_irsa_additional_policies" {
   type        = map(string)
   default     = {}
   description = "Map of the additional policies to be attached to default role of the Kyverno Admission Controller component. Where key is arbitrary id and value is policy ARN."
+}
+
+variable "kyverno_background_controller_rbac_create" {
+  type        = bool
+  default     = true
+  description = "Whether to create and use Background Controller RBAC resources."
 }
 
 variable "kyverno_background_controller_enabled" {
@@ -125,6 +137,12 @@ variable "kyverno_background_controller_irsa_additional_policies" {
   description = "Map of the additional policies to be attached to default role of the Kyverno Background Controller component. Where key is arbitrary id and value is policy ARN."
 }
 
+variable "kyverno_cleanup_controller_rbac_create" {
+  type        = bool
+  default     = true
+  description = "Whether to create and use Cleanup Controller RBAC resources."
+}
+
 variable "kyverno_cleanup_controller_enabled" {
   type        = bool
   default     = true
@@ -183,6 +201,12 @@ variable "kyverno_cleanup_controller_irsa_additional_policies" {
   type        = map(string)
   default     = {}
   description = "Map of the additional policies to be attached to default role of the Kyverno Cleanup Controller component. Where key is arbitrary id and value is policy ARN."
+}
+
+variable "kyverno_reports_controller_rbac_create" {
+  type        = bool
+  default     = true
+  description = "Whether to create and use Reports Controller RBAC resources."
 }
 
 variable "kyverno_reports_controller_enabled" {
