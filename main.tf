@@ -4,19 +4,18 @@
  * A Terraform module to deploy the [Kyverno](https://kyverno.io) on Amazon EKS cluster.
  *
  * [![Terraform validate](https://github.com/lablabs/terraform-aws-eks-kyverno/actions/workflows/validate.yaml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-kyverno/actions/workflows/validate.yaml)
- * [![pre-commit](https://github.com/lablabs/terraform-aws-eks-kyverno/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-kyverno/actions/workflows/pre-commit.yml)
+ * [![pre-commit](https://github.com/lablabs/terraform-aws-eks-kyverno/actions/workflows/pre-commit.yaml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-kyverno/actions/workflows/pre-commit.yaml)
  */
-
 locals {
   addon = {
     name = "kyverno"
 
     helm_chart_version = "3.3.7"
-    helm_repo_url      = "hhttps://kyverno.github.io/kyverno"
+    helm_repo_url      = "https://kyverno.github.io/kyverno"
   }
 
   addon_irsa = {
-    "admission-controller" = {
+    admission-controller = {
       rbac_create            = var.admission_controller_rbac_create
       service_account_create = var.admission_controller_service_account_create
       service_account_name   = var.admission_controller_service_account_name
@@ -29,7 +28,7 @@ locals {
       irsa_permissions_boundary = var.admission_controller_irsa_permissions_boundary
       irsa_additional_policies  = var.admission_controller_irsa_additional_policies
     }
-    "background-controller" = {
+    background-controller = {
       rbac_create            = var.background_controller_rbac_create
       service_account_create = var.background_controller_service_account_create
       service_account_name   = var.background_controller_service_account_name
@@ -42,7 +41,7 @@ locals {
       irsa_permissions_boundary = var.background_controller_irsa_permissions_boundary
       irsa_additional_policies  = var.background_controller_irsa_additional_policies
     }
-    "cleanup-controller" = {
+    cleanup-controller = {
       rbac_create            = var.cleanup_controller_rbac_create
       service_account_create = var.cleanup_controller_service_account_create
       service_account_name   = var.cleanup_controller_service_account_name
@@ -55,7 +54,7 @@ locals {
       irsa_permissions_boundary = var.cleanup_controller_irsa_permissions_boundary
       irsa_additional_policies  = var.cleanup_controller_irsa_additional_policies
     }
-    "reports-controller" = {
+    reports-controller = {
       rbac_create            = var.reports_controller_rbac_create
       service_account_create = var.reports_controller_service_account_create
       service_account_name   = var.reports_controller_service_account_name

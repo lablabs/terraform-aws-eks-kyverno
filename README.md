@@ -4,7 +4,7 @@
 A Terraform module to deploy the [Kyverno](https://kyverno.io) on Amazon EKS cluster.
 
 [![Terraform validate](https://github.com/lablabs/terraform-aws-eks-kyverno/actions/workflows/validate.yaml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-kyverno/actions/workflows/validate.yaml)
-[![pre-commit](https://github.com/lablabs/terraform-aws-eks-kyverno/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-kyverno/actions/workflows/pre-commit.yml)
+[![pre-commit](https://github.com/lablabs/terraform-aws-eks-kyverno/actions/workflows/pre-commit.yaml/badge.svg)](https://github.com/lablabs/terraform-aws-eks-kyverno/actions/workflows/pre-commit.yaml)
 
 ---
 
