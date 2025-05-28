@@ -33,3 +33,18 @@ moved {
   from = kubernetes_service_account.helm_argo_application_wait
   to   = module.addon.kubernetes_service_account.helm_argo_application_wait
 }
+
+moved {
+  from = aws_iam_role.this
+  to   = module.addon-irsa["admission-controller"].aws_iam_role.this
+}
+
+moved {
+  from = aws_iam_policy.this
+  to   = module.addon-irsa["admission-controller"].aws_iam_policy.this
+}
+
+moved {
+  from = aws_iam_role_policy_attachment.this
+  to   = module.addon-irsa["admission-controller"].aws_iam_role_policy_attachment.this
+}

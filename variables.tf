@@ -31,7 +31,7 @@ variable "admission_controller_service_account_name" {
 
 variable "admission_controller_irsa_role_create" {
   type        = bool
-  default     = false
+  default     = true
   description = "Whether to create the IRSA role for the Kyverno Admission Controller component."
 }
 
