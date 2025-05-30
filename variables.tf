@@ -25,7 +25,7 @@ variable "admission_controller_service_account_create" {
 
 variable "admission_controller_service_account_name" {
   type        = string
-  default     = "admission-controller"
+  default     = "kyverno-admission-controller"
   description = "The name of the Service Account for the Kyverno Admission Controller component."
 }
 
@@ -33,6 +33,12 @@ variable "admission_controller_irsa_role_create" {
   type        = bool
   default     = true
   description = "Whether to create the IRSA role for the Kyverno Admission Controller component."
+}
+
+variable "admission_controller_irsa_role_name" {
+  type        = string
+  default     = "kyverno-admission"
+  description = "The name of the IRSA role for the Kyverno Admission Controller component."
 }
 
 variable "admission_controller_irsa_policy_enabled" {
@@ -91,7 +97,7 @@ variable "background_controller_service_account_create" {
 
 variable "background_controller_service_account_name" {
   type        = string
-  default     = "background-controller"
+  default     = "kyverno-background-controller"
   description = "The name of the Service Account for the Kyverno Background Controller component."
 }
 
@@ -99,6 +105,12 @@ variable "background_controller_irsa_role_create" {
   type        = bool
   default     = false
   description = "Whether to create the IRSA role for the Kyverno Background Controller component."
+}
+
+variable "background_controller_irsa_role_name" {
+  type        = string
+  default     = "kyverno-background"
+  description = "The name of the IRSA role for the Kyverno Background Controller component."
 }
 
 variable "background_controller_irsa_policy_enabled" {
@@ -157,7 +169,7 @@ variable "cleanup_controller_service_account_create" {
 
 variable "cleanup_controller_service_account_name" {
   type        = string
-  default     = "cleanup-controller"
+  default     = "kyverno-cleanup-controller"
   description = "The name of the Service Account for the Kyverno Cleanup Controller component."
 }
 
@@ -165,6 +177,12 @@ variable "cleanup_controller_irsa_role_create" {
   type        = bool
   default     = false
   description = "Whether to create the IRSA role for the Kyverno Cleanup Controller component."
+}
+
+variable "cleanup_controller_irsa_role_name" {
+  type        = string
+  default     = "kyverno-cleanup"
+  description = "The name of the IRSA role for the Kyverno Cleanup Controller component."
 }
 
 variable "cleanup_controller_irsa_policy_enabled" {
@@ -223,7 +241,7 @@ variable "reports_controller_service_account_create" {
 
 variable "reports_controller_service_account_name" {
   type        = string
-  default     = "reports-controller"
+  default     = "kyverno-reports-controller"
   description = "The name of the Service Account for the Kyverno Reports Controller component."
 }
 
@@ -231,6 +249,12 @@ variable "reports_controller_irsa_role_create" {
   type        = bool
   default     = false
   description = "Whether to create the IRSA role for the Kyverno Reports Controller component."
+}
+
+variable "reports_controller_irsa_role_name" {
+  type        = string
+  default     = "kyverno-reports"
+  description = "The name of the IRSA role for the Kyverno Reports Controller component."
 }
 
 variable "reports_controller_irsa_policy_enabled" {

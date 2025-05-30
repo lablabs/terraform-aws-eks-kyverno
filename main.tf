@@ -21,6 +21,7 @@ locals {
       service_account_name   = var.admission_controller_service_account_name
 
       irsa_role_create          = var.admission_controller_irsa_role_create
+      irsa_role_name            = var.admission_controller_irsa_role_name
       irsa_policy_enabled       = var.admission_controller_irsa_policy_enabled
       irsa_policy               = var.admission_controller_irsa_policy
       irsa_assume_role_enabled  = var.admission_controller_irsa_assume_role_enabled
@@ -34,6 +35,7 @@ locals {
       service_account_name   = var.background_controller_service_account_name
 
       irsa_role_create          = var.background_controller_irsa_role_create
+      irsa_role_name            = var.background_controller_irsa_role_name
       irsa_policy_enabled       = var.background_controller_irsa_policy_enabled
       irsa_policy               = var.background_controller_irsa_policy
       irsa_assume_role_enabled  = var.background_controller_irsa_assume_role_enabled
@@ -47,6 +49,7 @@ locals {
       service_account_name   = var.cleanup_controller_service_account_name
 
       irsa_role_create          = var.cleanup_controller_irsa_role_create
+      irsa_role_name            = var.cleanup_controller_irsa_role_name
       irsa_policy_enabled       = var.cleanup_controller_irsa_policy_enabled
       irsa_policy               = var.cleanup_controller_irsa_policy
       irsa_assume_role_enabled  = var.cleanup_controller_irsa_assume_role_enabled
@@ -60,6 +63,7 @@ locals {
       service_account_name   = var.reports_controller_service_account_name
 
       irsa_role_create          = var.reports_controller_irsa_role_create
+      irsa_role_name            = var.reports_controller_irsa_role_name
       irsa_policy_enabled       = var.reports_controller_irsa_policy_enabled
       irsa_policy               = var.reports_controller_irsa_policy
       irsa_assume_role_enabled  = var.reports_controller_irsa_assume_role_enabled
