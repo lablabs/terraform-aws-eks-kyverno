@@ -69,7 +69,7 @@ See [basic example](examples/basic) for further information.
 
 | Name | Description | Type |
 |------|-------------|------|
-| <a name="input_addon_depends_on"></a> [addon\_depends\_on](#input\_addon\_depends\_on) | List of resources to wait for before installing the addon. Typically used to force a dependency on another addon. | `list(any)` |
+| <a name="input_addon_depends_on"></a> [addon\_depends\_on](#input\_addon\_depends\_on) | List of resources to wait for before installing the addon. Typically used to force a dependency on another addon. | `any` |
 | <a name="input_admission_controller_enabled"></a> [admission\_controller\_enabled](#input\_admission\_controller\_enabled) | Set to true to enable Thanos Query component | `bool` |
 | <a name="input_admission_controller_irsa_additional_policies"></a> [admission\_controller\_irsa\_additional\_policies](#input\_admission\_controller\_irsa\_additional\_policies) | Map of the additional policies to be attached to default role of the Kyverno Admission Controller component. Where key is arbitrary id and value is policy ARN. | `map(string)` |
 | <a name="input_admission_controller_irsa_assume_role_arns"></a> [admission\_controller\_irsa\_assume\_role\_arns](#input\_admission\_controller\_irsa\_assume\_role\_arns) | Assume role ARNs for the Kyverno Admission Controller component. Applied only if `admission_controller_irsa_assume_role_enabled` is `true`. | `list(string)` |
