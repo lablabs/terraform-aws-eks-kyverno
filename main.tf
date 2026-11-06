@@ -10,7 +10,7 @@ locals {
   addon = {
     name = "kyverno"
 
-    helm_chart_version = "3.3.7"
+    helm_chart_version = "3.9.2"
     helm_repo_url      = "https://kyverno.github.io/kyverno"
   }
 
